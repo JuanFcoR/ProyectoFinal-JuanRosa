@@ -13,7 +13,7 @@ namespace Entidades
         public int UsuarioId { get; set; }
         public string Nombres { get; set; }
         public string Usuario { get; set; }
-        public string Password { get; set; }
+        public string Psw { get; set; }
         public int NivelAcceso { get; set; }
 
         public Usuarios()
@@ -21,7 +21,7 @@ namespace Entidades
             UsuarioId = 0;
             Nombres = string.Empty;
             Usuario = string.Empty;
-            Password = string.Empty;
+            Psw = string.Empty;
             NivelAcceso = 0;
         }
 

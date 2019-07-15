@@ -1,4 +1,6 @@
-﻿using Entidades;
+﻿using BLL;
+using DAL;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,11 +20,40 @@ namespace ProyectoFinalAlpha
             InitializeComponent();
         }
 
-        private bool Us
+        public bool ExisteUsuario()
+        {
+
+            Contexto con = new Contexto();
+            var ud = (from Us in con.Usuarios where Us.Usuario.Contains(UserTextBox.Text) select Us.Usuario);
+
+
+
+
+            return (ud!=null);
+        }
+        public Usuarios Contrasenia()
+        {
+            Usuarios us = new Usuarios();
+
+            Contexto con = new Contexto();
+            var ud = (from Us in con.Usuarios where Us.Psw.Equals(PasswordTextBox.Text) select Us.UsuarioId);
+
+
+
+            return us;
+            
+        }
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            Usuarios us
+            if(ExisteUsuario())
+            {
+                Contrasenia();
+                Form1 fm = new Form1();
+                fm.Show();
+                
+            }
+            
         }
     }
 }

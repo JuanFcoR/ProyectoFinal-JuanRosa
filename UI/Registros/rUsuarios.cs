@@ -81,7 +81,7 @@ namespace ProyectoFinalAlpha.UI.Registros
             us.UsuarioId= Convert.ToInt32(UsuarioIdNumericUpDown.Value);
             us.Nombres = NombresTextBox.Text;
             us.Usuario = UsuarioTextBox.Text;
-            us.Password = PasswordTextBox.Text;
+            us.Psw = PasswordTextBox.Text.ToString();
             us.NivelAcceso = Convert.ToInt32(NivelAccesoNumericUpDown.Value);
             return us;
         }
@@ -91,7 +91,7 @@ namespace ProyectoFinalAlpha.UI.Registros
             UsuarioIdNumericUpDown.Value = asig.UsuarioId;
             NombresTextBox.Text = asig.Nombres;
             UsuarioTextBox.Text = asig.Usuario;
-            PasswordTextBox.Text = asig.Password;
+            PasswordTextBox.Text = asig.Psw;
             NivelAccesoNumericUpDown.Value = asig.NivelAcceso;
 
         }

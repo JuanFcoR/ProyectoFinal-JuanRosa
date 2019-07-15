@@ -88,6 +88,12 @@
     <Compile Include="UI\Registros\rUsuarios.Designer.cs">
       <DependentUpon>rUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\UserReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -109,6 +115,10 @@
     <EmbeddedResource Include="UI\Registros\rUsuarios.resx">
       <DependentUpon>rUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\UserReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>UserReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -128,14 +138,16 @@
       <Project>{46B3F424-CF82-47B6-8D2E-68C4FFF544F9}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="DAL\DAL.csproj">
+      <Project>{1385BE0E-64E9-4239-8BD7-14C68E12DDCD}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="Entidades\Entidades.csproj">
       <Project>{5334fa41-da6c-43a5-9164-1cdb8852f30a}</Project>
       <Name>Entidades</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UI\Reportes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
