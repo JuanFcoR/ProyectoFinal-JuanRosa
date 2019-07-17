@@ -48,6 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlPago.cs" />
+    <Compile Include="OrdenDeCompra.cs" />
+    <Compile Include="Productos.cs" />
+    <Compile Include="Suplidores.cs" />
     <Compile Include="Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

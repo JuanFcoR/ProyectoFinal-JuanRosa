@@ -69,16 +69,16 @@ namespace BLL
         public virtual bool Guardar(T entity)
         {
             bool paso = false;
-            //try
-            //{
+            try
+            {
                 if (_contexto.Set<T>().Add(entity) != null)
                     paso = _contexto.SaveChanges() > 0;
-            //}
-            //catch (Exception)
-            //{
+            }
+            catch (Exception)
+            {
 
-              //  throw;
-            //}
+                throw;
+            }
             return paso;
         }
 

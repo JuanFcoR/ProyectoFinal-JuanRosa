@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.EliminarButton = new System.Windows.Forms.Button();
-            this.GuardarButton = new System.Windows.Forms.Button();
-            this.NuevoButton = new System.Windows.Forms.Button();
             this.BuscarButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,49 +41,17 @@
             this.SuperErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.NivelAccesoNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.EliminarButton = new System.Windows.Forms.Button();
+            this.GuardarButton = new System.Windows.Forms.Button();
+            this.NuevoButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioIdNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SuperErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NivelAccesoNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
-            // EliminarButton
-            // 
-            this.EliminarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.EliminarButton.Location = new System.Drawing.Point(284, 260);
-            this.EliminarButton.Name = "EliminarButton";
-            this.EliminarButton.Size = new System.Drawing.Size(57, 51);
-            this.EliminarButton.TabIndex = 19;
-            this.EliminarButton.Text = "Eliminar";
-            this.EliminarButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.EliminarButton.UseVisualStyleBackColor = true;
-            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
-            // 
-            // GuardarButton
-            // 
-            this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.GuardarButton.Location = new System.Drawing.Point(196, 260);
-            this.GuardarButton.Name = "GuardarButton";
-            this.GuardarButton.Size = new System.Drawing.Size(57, 51);
-            this.GuardarButton.TabIndex = 18;
-            this.GuardarButton.Text = "Guardar";
-            this.GuardarButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.GuardarButton.UseVisualStyleBackColor = true;
-            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
-            // 
-            // NuevoButton
-            // 
-            this.NuevoButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.NuevoButton.Location = new System.Drawing.Point(115, 260);
-            this.NuevoButton.Name = "NuevoButton";
-            this.NuevoButton.Size = new System.Drawing.Size(57, 51);
-            this.NuevoButton.TabIndex = 17;
-            this.NuevoButton.Text = "Nuevo";
-            this.NuevoButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.NuevoButton.UseVisualStyleBackColor = true;
-            this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
-            // 
             // BuscarButton
             // 
+            this.BuscarButton.Image = global::ProyectoFinalAlpha.Properties.Resources.buscar__1_;
             this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BuscarButton.Location = new System.Drawing.Point(267, 12);
             this.BuscarButton.Name = "BuscarButton";
@@ -162,6 +127,7 @@
             // 
             this.PasswordTextBox.Location = new System.Drawing.Point(126, 149);
             this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.PasswordChar = '*';
             this.PasswordTextBox.Size = new System.Drawing.Size(215, 20);
             this.PasswordTextBox.TabIndex = 22;
             // 
@@ -185,6 +151,45 @@
             this.NivelAccesoNumericUpDown.Name = "NivelAccesoNumericUpDown";
             this.NivelAccesoNumericUpDown.Size = new System.Drawing.Size(94, 20);
             this.NivelAccesoNumericUpDown.TabIndex = 24;
+            // 
+            // EliminarButton
+            // 
+            this.EliminarButton.Image = global::ProyectoFinalAlpha.Properties.Resources.borrar;
+            this.EliminarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.EliminarButton.Location = new System.Drawing.Point(284, 260);
+            this.EliminarButton.Name = "EliminarButton";
+            this.EliminarButton.Size = new System.Drawing.Size(57, 51);
+            this.EliminarButton.TabIndex = 19;
+            this.EliminarButton.Text = "Eliminar";
+            this.EliminarButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.EliminarButton.UseVisualStyleBackColor = true;
+            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
+            // 
+            // GuardarButton
+            // 
+            this.GuardarButton.Image = global::ProyectoFinalAlpha.Properties.Resources.Save_371101;
+            this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.GuardarButton.Location = new System.Drawing.Point(196, 260);
+            this.GuardarButton.Name = "GuardarButton";
+            this.GuardarButton.Size = new System.Drawing.Size(57, 51);
+            this.GuardarButton.TabIndex = 18;
+            this.GuardarButton.Text = "Guardar";
+            this.GuardarButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.GuardarButton.UseVisualStyleBackColor = true;
+            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
+            // 
+            // NuevoButton
+            // 
+            this.NuevoButton.Image = global::ProyectoFinalAlpha.Properties.Resources.new_page_document_16676__1_;
+            this.NuevoButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.NuevoButton.Location = new System.Drawing.Point(115, 260);
+            this.NuevoButton.Name = "NuevoButton";
+            this.NuevoButton.Size = new System.Drawing.Size(57, 51);
+            this.NuevoButton.TabIndex = 17;
+            this.NuevoButton.Text = "Nuevo";
+            this.NuevoButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.NuevoButton.UseVisualStyleBackColor = true;
+            this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
             // rUsuarios
             // 
