@@ -9,7 +9,7 @@ namespace Entidades
     public class OrdenDeCompra
     {
         public int NoOrden { get; set; }
-        public int CodigoProveedor { get; set; }
+        public int CodigoSuplidor { get; set; }
         public DateTime Fecha { get; set; }
         public decimal Impuesto { get; set; }
         public string Telefono { get; set; }

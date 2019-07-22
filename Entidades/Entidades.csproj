@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControlPago.cs" />
+    <Compile Include="DetalleProductos.cs" />
     <Compile Include="OrdenDeCompra.cs" />
     <Compile Include="Productos.cs" />
     <Compile Include="Suplidores.cs" />
