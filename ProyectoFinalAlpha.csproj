@@ -70,11 +70,41 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Consultas\Compras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\Compras.Designer.cs">
+      <DependentUpon>Compras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\ControlPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ControlPago.Designer.cs">
+      <DependentUpon>ControlPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Consultas\cUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Consultas\cUsuarios.Designer.cs">
       <DependentUpon>cUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\cProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\cProductos.Designer.cs">
+      <DependentUpon>cProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\cSuplidores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\cSuplidores.Designer.cs">
+      <DependentUpon>cSuplidores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\ControlPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\ControlPago.Designer.cs">
+      <DependentUpon>ControlPago.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Registros\rOrdenCompra.cs">
       <SubType>Form</SubType>
@@ -122,6 +152,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\Consultas\Compras.resx">
+      <DependentUpon>Compras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\ControlPago.resx">
+      <DependentUpon>ControlPago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Consultas\cUsuarios.resx">
       <DependentUpon>cUsuarios.cs</DependentUpon>
     </EmbeddedResource>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.BuscarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
@@ -36,13 +37,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.DescripcionTextBox = new System.Windows.Forms.TextBox();
-            this.NoProductoNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.NombreTextBox = new System.Windows.Forms.TextBox();
+            this.NoSuplidorNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.RNCTextBox = new System.Windows.Forms.TextBox();
             this.TelefonoTextBox = new System.Windows.Forms.TextBox();
             this.DireccionTextBox = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.NoProductoNumericUpDown)).BeginInit();
+            this.SuperErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.NoSuplidorNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SuperErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // BuscarButton
@@ -54,6 +57,7 @@
             this.BuscarButton.TabIndex = 39;
             this.BuscarButton.Text = "Buscar";
             this.BuscarButton.UseVisualStyleBackColor = true;
+            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
             // EliminarButton
             // 
@@ -64,6 +68,7 @@
             this.EliminarButton.TabIndex = 38;
             this.EliminarButton.Text = "Eliminar";
             this.EliminarButton.UseVisualStyleBackColor = true;
+            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
             // 
             // GuardarButton
             // 
@@ -74,6 +79,7 @@
             this.GuardarButton.TabIndex = 37;
             this.GuardarButton.Text = "Guardar";
             this.GuardarButton.UseVisualStyleBackColor = true;
+            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
             // 
             // NuevoButton
             // 
@@ -84,6 +90,7 @@
             this.NuevoButton.TabIndex = 36;
             this.NuevoButton.Text = "Nuevo";
             this.NuevoButton.UseVisualStyleBackColor = true;
+            this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
             // label5
             // 
@@ -125,21 +132,21 @@
             this.label2.TabIndex = 23;
             this.label2.Text = "Nombre";
             // 
-            // DescripcionTextBox
+            // NombreTextBox
             // 
-            this.DescripcionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.DescripcionTextBox.Location = new System.Drawing.Point(115, 62);
-            this.DescripcionTextBox.Name = "DescripcionTextBox";
-            this.DescripcionTextBox.Size = new System.Drawing.Size(190, 23);
-            this.DescripcionTextBox.TabIndex = 22;
+            this.NombreTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.NombreTextBox.Location = new System.Drawing.Point(115, 62);
+            this.NombreTextBox.Name = "NombreTextBox";
+            this.NombreTextBox.Size = new System.Drawing.Size(190, 23);
+            this.NombreTextBox.TabIndex = 22;
             // 
-            // NoProductoNumericUpDown
+            // NoSuplidorNumericUpDown
             // 
-            this.NoProductoNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.NoProductoNumericUpDown.Location = new System.Drawing.Point(115, 17);
-            this.NoProductoNumericUpDown.Name = "NoProductoNumericUpDown";
-            this.NoProductoNumericUpDown.Size = new System.Drawing.Size(61, 23);
-            this.NoProductoNumericUpDown.TabIndex = 21;
+            this.NoSuplidorNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.NoSuplidorNumericUpDown.Location = new System.Drawing.Point(115, 17);
+            this.NoSuplidorNumericUpDown.Name = "NoSuplidorNumericUpDown";
+            this.NoSuplidorNumericUpDown.Size = new System.Drawing.Size(61, 23);
+            this.NoSuplidorNumericUpDown.TabIndex = 21;
             // 
             // label1
             // 
@@ -154,7 +161,7 @@
             // RNCTextBox
             // 
             this.RNCTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.RNCTextBox.Location = new System.Drawing.Point(115, 200);
+            this.RNCTextBox.Location = new System.Drawing.Point(115, 184);
             this.RNCTextBox.Name = "RNCTextBox";
             this.RNCTextBox.Size = new System.Drawing.Size(190, 23);
             this.RNCTextBox.TabIndex = 40;
@@ -175,6 +182,10 @@
             this.DireccionTextBox.Size = new System.Drawing.Size(190, 23);
             this.DireccionTextBox.TabIndex = 42;
             // 
+            // SuperErrorProvider
+            // 
+            this.SuperErrorProvider.ContainerControl = this;
+            // 
             // rSuplidores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,12 +202,13 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.DescripcionTextBox);
-            this.Controls.Add(this.NoProductoNumericUpDown);
+            this.Controls.Add(this.NombreTextBox);
+            this.Controls.Add(this.NoSuplidorNumericUpDown);
             this.Controls.Add(this.label1);
             this.Name = "rSuplidores";
             this.Text = "rSuplidores";
-            ((System.ComponentModel.ISupportInitialize)(this.NoProductoNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NoSuplidorNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SuperErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,11 +224,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox DescripcionTextBox;
-        private System.Windows.Forms.NumericUpDown NoProductoNumericUpDown;
+        private System.Windows.Forms.TextBox NombreTextBox;
+        private System.Windows.Forms.NumericUpDown NoSuplidorNumericUpDown;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox RNCTextBox;
         private System.Windows.Forms.TextBox TelefonoTextBox;
         private System.Windows.Forms.TextBox DireccionTextBox;
+        private System.Windows.Forms.ErrorProvider SuperErrorProvider;
     }
 }

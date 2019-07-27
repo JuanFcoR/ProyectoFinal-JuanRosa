@@ -13,5 +13,18 @@ namespace Entidades
         public DateTime Fecha { get; set; }
         public decimal Impuesto { get; set; }
         public string Telefono { get; set; }
+
+        public virtual List<DetalleProductos> ListaProductos { get; set; }
+
+        public OrdenDeCompra()
+        {
+            NoOrden = 0;
+            CodigoSuplidor = 0;
+            Fecha = DateTime.Now;
+            Impuesto = 0;
+            Telefono = string.Empty;
+            ListaProductos = new List<DetalleProductos>();
+
+        }
     }
 }
