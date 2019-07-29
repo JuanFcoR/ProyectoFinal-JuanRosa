@@ -76,5 +76,20 @@ namespace ProyectoFinalAlpha.UI.Consultas
             ConsultaDataGridView.DataSource = null;
             ConsultaDataGridView.DataSource = listado;
         }
+
+        private void FechasCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(FechasCheckBox.Checked==true)
+            {
+                DesdeDateTimePicker.Enabled = true;
+                HastaDateTimePicker.Enabled = true;
+
+            }
+            else
+            {
+                DesdeDateTimePicker.Enabled = false;
+                HastaDateTimePicker.Enabled = false;
+            }
+        }
     }
 }

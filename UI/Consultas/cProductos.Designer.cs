@@ -52,7 +52,7 @@
             this.ConsultarButton.Name = "ConsultarButton";
             this.ConsultarButton.Size = new System.Drawing.Size(93, 37);
             this.ConsultarButton.TabIndex = 15;
-            this.ConsultarButton.Text = "button1";
+            this.ConsultarButton.Text = "Consultar";
             this.ConsultarButton.UseVisualStyleBackColor = true;
             this.ConsultarButton.Click += new System.EventHandler(this.ConsultarButton_Click);
             // 
@@ -120,6 +120,7 @@
             this.FechasCheckBox.TabIndex = 13;
             this.FechasCheckBox.Text = "Usar Fechas";
             this.FechasCheckBox.UseVisualStyleBackColor = true;
+            this.FechasCheckBox.CheckedChanged += new System.EventHandler(this.FechasCheckBox_CheckedChanged);
             // 
             // panel1
             // 

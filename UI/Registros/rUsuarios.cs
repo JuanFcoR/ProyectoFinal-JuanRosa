@@ -56,6 +56,24 @@ namespace ProyectoFinalAlpha.UI.Registros
             return paso;
         }
 
+        public string Encriptar(string cadena)
+        {
+            string resultado = string.Empty;
+            byte[] encryted = System.Text.Encoding.Unicode.GetBytes(cadena);
+            resultado = Convert.ToBase64String(encryted);
+
+            return resultado;
+        }
+
+        public string DesEncriptar(string cadena)
+        {
+            string resultado = string.Empty;
+            byte[] decryted = Convert.FromBase64String(cadena);
+            resultado = System.Text.Encoding.Unicode.GetString(decryted);
+
+            return resultado;
+        }
+
         public bool ExisteEnLaBaseDeDatos()
         {
             Repositorio<Usuarios> rep = new Repositorio<Usuarios>();
@@ -79,9 +97,10 @@ namespace ProyectoFinalAlpha.UI.Registros
         {
             Usuarios us = new Usuarios();
             us.UsuarioId= Convert.ToInt32(UsuarioIdNumericUpDown.Value);
-            us.Nombres = NombresTextBox.Text;
-            us.Usuario = UsuarioTextBox.Text;
-            us.Psw = PasswordTextBox.Text.ToString();
+            us.Nombres = NombresTextBox.Text.Trim();
+            us.Usuario = UsuarioTextBox.Text.Trim();
+            us.Psw = PasswordTextBox.Text.ToString().Trim();
+            us.Psw = Encriptar(PasswordTextBox.Text.Trim());
             us.NivelAcceso = Convert.ToInt32(NivelAccesoNumericUpDown.Value);
             return us;
         }
@@ -92,6 +111,7 @@ namespace ProyectoFinalAlpha.UI.Registros
             NombresTextBox.Text = asig.Nombres;
             UsuarioTextBox.Text = asig.Usuario;
             PasswordTextBox.Text = asig.Psw;
+            PasswordTextBox.Text = DesEncriptar(asig.Psw);
             NivelAccesoNumericUpDown.Value = asig.NivelAcceso;
 
         }

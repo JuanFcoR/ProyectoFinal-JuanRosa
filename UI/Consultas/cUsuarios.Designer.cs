@@ -40,7 +40,7 @@
             // 
             // EditarButton
             // 
-            this.EditarButton.Location = new System.Drawing.Point(660, 77);
+            this.EditarButton.Location = new System.Drawing.Point(660, 21);
             this.EditarButton.Name = "EditarButton";
             this.EditarButton.Size = new System.Drawing.Size(75, 23);
             this.EditarButton.TabIndex = 34;
@@ -51,7 +51,7 @@
             // ConsultarButton
             // 
             this.ConsultarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ConsultarButton.Location = new System.Drawing.Point(660, 16);
+            this.ConsultarButton.Location = new System.Drawing.Point(561, 17);
             this.ConsultarButton.Name = "ConsultarButton";
             this.ConsultarButton.Size = new System.Drawing.Size(82, 33);
             this.ConsultarButton.TabIndex = 33;
@@ -67,7 +67,7 @@
             this.CriterioTextBox.Location = new System.Drawing.Point(157, 24);
             this.CriterioTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.CriterioTextBox.Name = "CriterioTextBox";
-            this.CriterioTextBox.Size = new System.Drawing.Size(377, 20);
+            this.CriterioTextBox.Size = new System.Drawing.Size(324, 20);
             this.CriterioTextBox.TabIndex = 32;
             // 
             // FiltrarComboBox
@@ -89,7 +89,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(275, 3);
+            this.label2.Location = new System.Drawing.Point(154, 9);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
@@ -102,11 +102,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ConsultaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ConsultaDataGridView.Location = new System.Drawing.Point(11, 217);
+            this.ConsultaDataGridView.Location = new System.Drawing.Point(19, 55);
             this.ConsultaDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.ConsultaDataGridView.Name = "ConsultaDataGridView";
             this.ConsultaDataGridView.RowTemplate.Height = 24;
-            this.ConsultaDataGridView.Size = new System.Drawing.Size(632, 222);
+            this.ConsultaDataGridView.Size = new System.Drawing.Size(717, 380);
             this.ConsultaDataGridView.TabIndex = 29;
             // 
             // label1
@@ -123,7 +123,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(747, 450);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.EditarButton);
             this.Controls.Add(this.ConsultarButton);
