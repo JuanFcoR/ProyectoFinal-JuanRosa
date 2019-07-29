@@ -1,6 +1,6 @@
 ﻿namespace ProyectoFinalAlpha.UI.Consultas
 {
-    partial class ControlPago
+    partial class cControlPago
     {
         /// <summary>
         /// Required designer variable.

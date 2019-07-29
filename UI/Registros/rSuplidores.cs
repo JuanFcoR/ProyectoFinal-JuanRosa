@@ -27,6 +27,7 @@ namespace ProyectoFinalAlpha.UI.Registros
             DireccionTextBox.Text = string.Empty;
             TelefonoTextBox.Text = string.Empty;
             RNCTextBox.Text = string.Empty;
+            FechaCreacionDateTimePicker.Value = DateTime.Now;
             SuperErrorProvider.Clear();
         }
         private Suplidores llenarClase()
@@ -37,6 +38,7 @@ namespace ProyectoFinalAlpha.UI.Registros
             Pro.Direccion = DireccionTextBox.Text;
             Pro.Telefono = TelefonoTextBox.Text;
             Pro.RNC = RNCTextBox.Text;
+            Pro.FechaCreacion = FechaCreacionDateTimePicker.Value;
 
             return Pro;
         }
@@ -94,6 +96,7 @@ namespace ProyectoFinalAlpha.UI.Registros
             DireccionTextBox.Text = Pro.Direccion;
             TelefonoTextBox.Text = Pro.Telefono;
             RNCTextBox.Text = Pro.RNC;
+            FechaCreacionDateTimePicker.Value = Pro.FechaCreacion;
         }
 
         private void NuevoButton_Click(object sender, EventArgs e)

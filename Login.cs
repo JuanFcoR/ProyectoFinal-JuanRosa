@@ -49,7 +49,7 @@ namespace ProyectoFinalAlpha
             if(ExisteUsuario())
             {
                 Contrasenia();
-                Form1 fm = new Form1();
+                MainForm fm = new MainForm();
                 fm.Show();
                 
             }

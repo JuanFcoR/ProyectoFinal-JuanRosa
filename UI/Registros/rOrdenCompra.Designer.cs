@@ -1,6 +1,6 @@
 ﻿namespace ProyectoFinalAlpha.UI.Consultas
 {
-    partial class cOrdenCompra
+    partial class rOrdenCompra
     {
         /// <summary>
         /// Required designer variable.
@@ -52,9 +52,11 @@
             this.IdNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.RemoverButton = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.TelefonoMaskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.SuplidoresComboBox = new System.Windows.Forms.ComboBox();
+            this.TelefonoMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.SuperErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label10 = new System.Windows.Forms.Label();
+            this.TotalNumericUpDown = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.NoOrdenNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImpuestoNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DetalleDataGridView)).BeginInit();
@@ -63,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NoProductoNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IdNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SuperErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TotalNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // BuscarButton
@@ -78,7 +81,7 @@
             // EliminarButton
             // 
             this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.EliminarButton.Location = new System.Drawing.Point(237, 486);
+            this.EliminarButton.Location = new System.Drawing.Point(240, 536);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(75, 54);
             this.EliminarButton.TabIndex = 52;
@@ -89,7 +92,7 @@
             // GuardarButton
             // 
             this.GuardarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.GuardarButton.Location = new System.Drawing.Point(122, 486);
+            this.GuardarButton.Location = new System.Drawing.Point(125, 536);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(75, 54);
             this.GuardarButton.TabIndex = 51;
@@ -100,7 +103,7 @@
             // NuevoButton
             // 
             this.NuevoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.NuevoButton.Location = new System.Drawing.Point(18, 486);
+            this.NuevoButton.Location = new System.Drawing.Point(21, 536);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(75, 54);
             this.NuevoButton.TabIndex = 50;
@@ -186,7 +189,7 @@
             // DetalleDataGridView
             // 
             this.DetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DetalleDataGridView.Location = new System.Drawing.Point(12, 277);
+            this.DetalleDataGridView.Location = new System.Drawing.Point(15, 327);
             this.DetalleDataGridView.Name = "DetalleDataGridView";
             this.DetalleDataGridView.Size = new System.Drawing.Size(458, 150);
             this.DetalleDataGridView.TabIndex = 63;
@@ -201,7 +204,7 @@
             this.panel1.Controls.Add(this.NoProductoNumericUpDown);
             this.panel1.Controls.Add(this.IdNumericUpDown);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(12, 179);
+            this.panel1.Location = new System.Drawing.Point(15, 229);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(449, 92);
             this.panel1.TabIndex = 65;
@@ -284,7 +287,7 @@
             // RemoverButton
             // 
             this.RemoverButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.RemoverButton.Location = new System.Drawing.Point(357, 433);
+            this.RemoverButton.Location = new System.Drawing.Point(351, 483);
             this.RemoverButton.Name = "RemoverButton";
             this.RemoverButton.Size = new System.Drawing.Size(113, 23);
             this.RemoverButton.TabIndex = 72;
@@ -292,35 +295,56 @@
             this.RemoverButton.UseVisualStyleBackColor = true;
             this.RemoverButton.Click += new System.EventHandler(this.RemoverButton_Click);
             // 
-            // comboBox1
+            // SuplidoresComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(125, 99);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(114, 21);
-            this.comboBox1.TabIndex = 73;
+            this.SuplidoresComboBox.FormattingEnabled = true;
+            this.SuplidoresComboBox.Location = new System.Drawing.Point(125, 99);
+            this.SuplidoresComboBox.Name = "SuplidoresComboBox";
+            this.SuplidoresComboBox.Size = new System.Drawing.Size(114, 21);
+            this.SuplidoresComboBox.TabIndex = 73;
+            this.SuplidoresComboBox.SelectedIndexChanged += new System.EventHandler(this.SuplidoresComboBox_SelectedIndexChanged);
             // 
-            // TelefonoMaskedTextBox1
+            // TelefonoMaskedTextBox
             // 
-            this.TelefonoMaskedTextBox1.Enabled = false;
-            this.TelefonoMaskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.TelefonoMaskedTextBox1.Location = new System.Drawing.Point(318, 96);
-            this.TelefonoMaskedTextBox1.Mask = "000-000-0000";
-            this.TelefonoMaskedTextBox1.Name = "TelefonoMaskedTextBox1";
-            this.TelefonoMaskedTextBox1.Size = new System.Drawing.Size(100, 23);
-            this.TelefonoMaskedTextBox1.TabIndex = 74;
+            this.TelefonoMaskedTextBox.Enabled = false;
+            this.TelefonoMaskedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.TelefonoMaskedTextBox.Location = new System.Drawing.Point(318, 96);
+            this.TelefonoMaskedTextBox.Mask = "000-000-0000";
+            this.TelefonoMaskedTextBox.Name = "TelefonoMaskedTextBox";
+            this.TelefonoMaskedTextBox.Size = new System.Drawing.Size(100, 23);
+            this.TelefonoMaskedTextBox.TabIndex = 74;
             // 
             // SuperErrorProvider
             // 
             this.SuperErrorProvider.ContainerControl = this;
             // 
-            // cOrdenCompra
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label10.Location = new System.Drawing.Point(13, 174);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(40, 17);
+            this.label10.TabIndex = 75;
+            this.label10.Text = "Total";
+            // 
+            // TotalNumericUpDown
+            // 
+            this.TotalNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.TotalNumericUpDown.Location = new System.Drawing.Point(122, 174);
+            this.TotalNumericUpDown.Name = "TotalNumericUpDown";
+            this.TotalNumericUpDown.Size = new System.Drawing.Size(123, 23);
+            this.TotalNumericUpDown.TabIndex = 76;
+            // 
+            // rOrdenCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(485, 550);
-            this.Controls.Add(this.TelefonoMaskedTextBox1);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(485, 678);
+            this.Controls.Add(this.TotalNumericUpDown);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.TelefonoMaskedTextBox);
+            this.Controls.Add(this.SuplidoresComboBox);
             this.Controls.Add(this.RemoverButton);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.DetalleDataGridView);
@@ -336,7 +360,7 @@
             this.Controls.Add(this.NuevoButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Name = "cOrdenCompra";
+            this.Name = "rOrdenCompra";
             this.Text = "cOrdenCompra";
             ((System.ComponentModel.ISupportInitialize)(this.NoOrdenNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImpuestoNumericUpDown)).EndInit();
@@ -347,6 +371,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NoProductoNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IdNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SuperErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TotalNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -376,8 +401,10 @@
         private System.Windows.Forms.NumericUpDown NoProductoNumericUpDown;
         private System.Windows.Forms.NumericUpDown IdNumericUpDown;
         private System.Windows.Forms.Button RemoverButton;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.MaskedTextBox TelefonoMaskedTextBox1;
+        private System.Windows.Forms.ComboBox SuplidoresComboBox;
+        private System.Windows.Forms.MaskedTextBox TelefonoMaskedTextBox;
         private System.Windows.Forms.ErrorProvider SuperErrorProvider;
+        private System.Windows.Forms.NumericUpDown TotalNumericUpDown;
+        private System.Windows.Forms.Label label10;
     }
 }

@@ -64,7 +64,7 @@
             // 
             this.CriterioTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.CriterioTextBox.Location = new System.Drawing.Point(278, 20);
+            this.CriterioTextBox.Location = new System.Drawing.Point(157, 24);
             this.CriterioTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.CriterioTextBox.Name = "CriterioTextBox";
             this.CriterioTextBox.Size = new System.Drawing.Size(377, 20);
@@ -102,11 +102,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ConsultaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ConsultaDataGridView.Location = new System.Drawing.Point(11, 54);
+            this.ConsultaDataGridView.Location = new System.Drawing.Point(11, 217);
             this.ConsultaDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.ConsultaDataGridView.Name = "ConsultaDataGridView";
             this.ConsultaDataGridView.RowTemplate.Height = 24;
-            this.ConsultaDataGridView.Size = new System.Drawing.Size(632, 385);
+            this.ConsultaDataGridView.Size = new System.Drawing.Size(632, 222);
             this.ConsultaDataGridView.TabIndex = 29;
             // 
             // label1
@@ -132,7 +132,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ConsultaDataGridView);
             this.Name = "cUsuarios";
-            this.Text = "cUsuarios";
+            this.Text = "Control de Usuarios";
             ((System.ComponentModel.ISupportInitialize)(this.ConsultaDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

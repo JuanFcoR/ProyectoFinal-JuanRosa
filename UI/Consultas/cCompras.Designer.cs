@@ -1,6 +1,6 @@
 ﻿namespace ProyectoFinalAlpha.UI.Consultas
 {
-    partial class Compras
+    partial class cCompras
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.DesdeDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.HastaDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
+            this.DesdeDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
             this.FechasCheckBox = new System.Windows.Forms.CheckBox();
-            this.filtroComboBox = new System.Windows.Forms.ComboBox();
+            this.FiltrarComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.CriterioTextBox = new System.Windows.Forms.TextBox();
@@ -56,26 +56,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(367, 53);
             this.panel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label1.Location = new System.Drawing.Point(3, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Desde";
-            // 
-            // DesdeDateTimePicker
-            // 
-            this.DesdeDateTimePicker.CustomFormat = "dd/MM/yyyy";
-            this.DesdeDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.DesdeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DesdeDateTimePicker.Location = new System.Drawing.Point(58, 22);
-            this.DesdeDateTimePicker.Name = "DesdeDateTimePicker";
-            this.DesdeDateTimePicker.Size = new System.Drawing.Size(115, 23);
-            this.DesdeDateTimePicker.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
             // HastaDateTimePicker
             // 
@@ -97,6 +78,26 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Hasta";
             // 
+            // DesdeDateTimePicker
+            // 
+            this.DesdeDateTimePicker.CustomFormat = "dd/MM/yyyy";
+            this.DesdeDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.DesdeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DesdeDateTimePicker.Location = new System.Drawing.Point(58, 22);
+            this.DesdeDateTimePicker.Name = "DesdeDateTimePicker";
+            this.DesdeDateTimePicker.Size = new System.Drawing.Size(115, 23);
+            this.DesdeDateTimePicker.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label1.Location = new System.Drawing.Point(3, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Desde";
+            // 
             // FechasCheckBox
             // 
             this.FechasCheckBox.AutoSize = true;
@@ -107,14 +108,15 @@
             this.FechasCheckBox.TabIndex = 5;
             this.FechasCheckBox.Text = "Usar Fechas";
             this.FechasCheckBox.UseVisualStyleBackColor = true;
+            this.FechasCheckBox.CheckedChanged += new System.EventHandler(this.FechasCheckBox_CheckedChanged);
             // 
-            // filtroComboBox
+            // FiltrarComboBox
             // 
-            this.filtroComboBox.FormattingEnabled = true;
-            this.filtroComboBox.Location = new System.Drawing.Point(54, 17);
-            this.filtroComboBox.Name = "filtroComboBox";
-            this.filtroComboBox.Size = new System.Drawing.Size(121, 21);
-            this.filtroComboBox.TabIndex = 6;
+            this.FiltrarComboBox.FormattingEnabled = true;
+            this.FiltrarComboBox.Location = new System.Drawing.Point(54, 17);
+            this.FiltrarComboBox.Name = "FiltrarComboBox";
+            this.FiltrarComboBox.Size = new System.Drawing.Size(121, 21);
+            this.FiltrarComboBox.TabIndex = 6;
             // 
             // label3
             // 
@@ -146,21 +148,23 @@
             // ConsultaDataGridView
             // 
             this.ConsultaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ConsultaDataGridView.Location = new System.Drawing.Point(282, 161);
+            this.ConsultaDataGridView.Location = new System.Drawing.Point(12, 88);
             this.ConsultaDataGridView.Name = "ConsultaDataGridView";
-            this.ConsultaDataGridView.Size = new System.Drawing.Size(240, 150);
+            this.ConsultaDataGridView.Size = new System.Drawing.Size(872, 379);
             this.ConsultaDataGridView.TabIndex = 9;
+            this.ConsultaDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ConsultaDataGridView_CellContentClick);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.CriterioTextBox);
-            this.panel2.Controls.Add(this.filtroComboBox);
+            this.panel2.Controls.Add(this.FiltrarComboBox);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(400, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(470, 53);
             this.panel2.TabIndex = 4;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint);
             // 
             // button1
             // 
@@ -170,19 +174,20 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // Compras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1026, 450);
+            this.ClientSize = new System.Drawing.Size(1006, 499);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.ConsultaDataGridView);
             this.Controls.Add(this.FechasCheckBox);
             this.Controls.Add(this.panel1);
             this.Name = "Compras";
-            this.Text = "Compras";
+            this.Text = "Ordenes de Compras";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConsultaDataGridView)).EndInit();
@@ -201,7 +206,7 @@
         private System.Windows.Forms.DateTimePicker DesdeDateTimePicker;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox FechasCheckBox;
-        private System.Windows.Forms.ComboBox filtroComboBox;
+        private System.Windows.Forms.ComboBox FiltrarComboBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox CriterioTextBox;

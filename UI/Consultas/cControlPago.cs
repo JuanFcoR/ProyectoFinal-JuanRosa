@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProyectoFinalAlpha.UI.Consultas
 {
-    public partial class ControlPago : Form
+    public partial class cControlPago : Form
     {
-        public ControlPago()
+        public cControlPago()
         {
             InitializeComponent();
         }

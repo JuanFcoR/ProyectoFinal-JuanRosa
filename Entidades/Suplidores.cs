@@ -15,5 +15,16 @@ namespace Entidades
         public string Direccion { get; set; }
         public string  Telefono { get; set; }
         public string RNC { get; set; }
+        public DateTime FechaCreacion { get; set; }
+        
+        public Suplidores()
+        {
+            CodigoSuplidor = 0;
+            Nombre = string.Empty;
+            Direccion = string.Empty;
+            Telefono = string.Empty;
+            RNC = string.Empty;
+            FechaCreacion = DateTime.Now;
+        }
     }
 }
