@@ -11,10 +11,12 @@ namespace Entidades
     {
         [Key]
         public int UsuarioId { get; set; }
+        public DateTime Fecha { get; set; }
         public string Nombres { get; set; }
         public string Usuario { get; set; }
+        public string Correo { get; set; }
         public string Psw { get; set; }
-        public int NivelAcceso { get; set; }
+        public string NivelAcceso { get; set; }
 
         public Usuarios()
         {
@@ -22,7 +24,9 @@ namespace Entidades
             Nombres = string.Empty;
             Usuario = string.Empty;
             Psw = string.Empty;
-            NivelAcceso = 0;
+            Correo = string.Empty;
+            NivelAcceso = string.Empty;
+            Fecha = DateTime.Now;
         }
 
 

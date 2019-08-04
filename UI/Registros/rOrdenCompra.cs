@@ -203,7 +203,7 @@ namespace ProyectoFinalAlpha.UI.Consultas
 
         private void SuplidoresComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (SuplidoresComboBox.SelectedIndex != null)
+            if (SuplidoresComboBox.SelectedIndex!=null)
             {
                 Repositorio<Suplidores> resu = new Repositorio<Suplidores>();
                 Suplidores su = resu.Buscar(SuplidoresComboBox.SelectedIndex);

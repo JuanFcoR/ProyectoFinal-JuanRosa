@@ -340,7 +340,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(485, 678);
+            this.ClientSize = new System.Drawing.Size(485, 608);
             this.Controls.Add(this.TotalNumericUpDown);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.TelefonoMaskedTextBox);

@@ -22,38 +22,47 @@ namespace ProyectoFinalAlpha
 
         public bool ExisteUsuario()
         {
-
+            bool paso = false;
             Contexto con = new Contexto();
-            var ud = (from Us in con.Usuarios where Us.Usuario.Contains(UserTextBox.Text) select Us.Usuario);
-
-
-
-
-            return (ud!=null);
+            
+            var ud = ((from Us in con.Usuarios where Us.Usuario.Equals(UserTextBox.Text) select Us.Usuario).FirstOrDefault());
+            if (ud != null)
+                paso = true;
+            else
+                paso = false;
+            return paso;
         }
-        public Usuarios Contrasenia()
+        public bool Contrasenia()
         {
             Usuarios us = new Usuarios();
-
+            bool paso = false;
+           
             Contexto con = new Contexto();
-            var ud = (from Us in con.Usuarios where Us.Psw.Equals(PasswordTextBox.Text) select Us.UsuarioId);
+            var ud= ((from Us in con.Usuarios where Us.Psw.Equals(PasswordTextBox.Text) select Us.Usuario).FirstOrDefault());
 
 
-
-            return us;
-            
+            if (ud!=null)
+                paso = true;
+            else
+                paso = false;
+            return paso;
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
             if(ExisteUsuario())
             {
-                Contrasenia();
-                MainForm fm = new MainForm();
-                fm.Show();
+                if (Contrasenia())
+                {
+                    MainForm fm = new MainForm();
+                    fm.Show();
+                }
+                else
+                    MessageBox.Show("error");
                 
             }
-            
+            else
+                MessageBox.Show("error");
         }
     }
 }

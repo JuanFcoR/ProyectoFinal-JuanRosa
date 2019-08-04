@@ -22,6 +22,7 @@ namespace ProyectoFinalAlpha.UI.Consultas
 
         private void ConsultarButton_Click(object sender, EventArgs e)
         {
+            
             var listado = new List<Usuarios>();
             Repositorio<Usuarios> rep = new Repositorio<Usuarios>();
 
@@ -33,7 +34,7 @@ namespace ProyectoFinalAlpha.UI.Consultas
                         listado = rep.GetList(p => true);
                         break;
 
-                    case 1:
+                    case 1://Id
                         int id = Convert.ToInt32(CriterioTextBox.Text);
                         listado = rep.GetList(p => p.UsuarioId == id);
                         break;
@@ -46,8 +47,8 @@ namespace ProyectoFinalAlpha.UI.Consultas
                         break;
 
                     case 4:
-                        int acceso = Convert.ToInt32(CriterioTextBox.Text);
-                        listado = rep.GetList(p => p.NivelAcceso == acceso);
+                        string acceso = (CriterioTextBox.Text);
+                        listado = rep.GetList(p => p.NivelAcceso.Equals(acceso));
                         break;
 
                 }
@@ -73,6 +74,11 @@ namespace ProyectoFinalAlpha.UI.Consultas
             rUsuarios re = new rUsuarios(es);
             this.Hide();
             re.ShowDialog();
+        }
+
+        private void FiltrarComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

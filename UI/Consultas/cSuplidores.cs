@@ -39,20 +39,20 @@ namespace ProyectoFinalAlpha.UI.Consultas
                         listado = or.GetList(p => p.CodigoSuplidor == id);
                         break;
 
-                    case 2:
+                    case 2://Nombre
                         listado = or.GetList(p=>p.Nombre.Contains(CriterioTextBox.Text));
                         break;
 
-                    case 3:
+                    case 3://Direccion
                         listado = or.GetList(p => p.Direccion.Contains(CriterioTextBox.Text));
 
                         break;
 
-                    case 4:
+                    case 4://Telefono
                         listado = or.GetList(p => p.Telefono.Contains(CriterioTextBox.Text));
 
                         break;
-                    case 5:
+                    case 5://RNC
                         listado = or.GetList(p => p.RNC.Contains(CriterioTextBox.Text));
 
                         break;

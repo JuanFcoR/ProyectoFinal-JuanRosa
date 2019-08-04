@@ -85,6 +85,7 @@
             this.FiltrarComboBox.Name = "FiltrarComboBox";
             this.FiltrarComboBox.Size = new System.Drawing.Size(92, 21);
             this.FiltrarComboBox.TabIndex = 31;
+            this.FiltrarComboBox.SelectedIndexChanged += new System.EventHandler(this.FiltrarComboBox_SelectedIndexChanged);
             // 
             // label2
             // 

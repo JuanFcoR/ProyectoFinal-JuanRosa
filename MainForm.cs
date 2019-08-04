@@ -28,7 +28,7 @@ namespace ProyectoFinalAlpha
         private void OrdenDeCompraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             rOrdenCompra ro = new rOrdenCompra();
-            ro.ShowDialog();
+            ro.Show();
         }
 
         private void SuplidoresToolStripMenuItem_Click(object sender, EventArgs e)
@@ -52,13 +52,19 @@ namespace ProyectoFinalAlpha
         private void OrdenDeCompraToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             cCompras cc = new cCompras();
-            cc.ShowDialog();
+            cc.Show();
         }
 
         private void ProductosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             cProductos cp = new cProductos();
-            cp.ShowDialog();
+            cp.Show();
+        }
+
+        private void UsuariosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cUsuarios cu = new cUsuarios();
+            cu.Show();
         }
     }
 }

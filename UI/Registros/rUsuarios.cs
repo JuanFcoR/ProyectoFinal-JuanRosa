@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DAL;
 using Entidades;
 using ProyectoFinalAlpha.UI.Consultas;
 using System;
@@ -38,10 +39,33 @@ namespace ProyectoFinalAlpha.UI.Registros
                 paso = false;
             }
 
+            if (string.IsNullOrWhiteSpace(CorreoTextBox.Text))
+            {
+                SuperErrorProvider.SetError(CorreoTextBox, "Este campo no puede estar vacio");
+                CorreoTextBox.Focus();
+                paso = false;
+            }
+
             if (string.IsNullOrWhiteSpace(UsuarioTextBox.Text))
             {
                 SuperErrorProvider.SetError(UsuarioTextBox, "Este campo no puede estar vacio");
                 UsuarioTextBox.Focus();
+                paso = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(ConfirmPasswordTextBox.Text))
+            {
+                SuperErrorProvider.SetError(ConfirmPasswordTextBox, "Este campo no puede estar vacio");
+                ConfirmPasswordTextBox.Focus();
+                paso = false;
+            }
+
+            if (!ConfirmPasswordTextBox.Text.Equals(PasswordTextBox.Text))
+            {
+                SuperErrorProvider.SetError(ConfirmPasswordTextBox, "Ambos campos deben coincidir");
+                ConfirmPasswordTextBox.Focus();
+                SuperErrorProvider.SetError(PasswordTextBox, "Ambos campos deben coincidir");
+                PasswordTextBox.Focus();
                 paso = false;
             }
 
@@ -53,6 +77,44 @@ namespace ProyectoFinalAlpha.UI.Registros
             }
 
 
+            return paso;
+        }
+
+
+        
+
+
+        public bool validarBase()
+        {
+            Contexto c = new Contexto();
+            Repositorio<Usuarios> rep = new Repositorio<Usuarios>();
+            bool paso = true;
+
+           
+
+            if (c.Usuarios.Any(p=>p.Usuario==UsuarioTextBox.Text))
+            {
+                SuperErrorProvider.SetError(UsuarioTextBox, "Este usuario ya existe en la base de datos");
+                UsuarioTextBox.Focus();
+                paso = false;
+            }
+
+            if (c.Usuarios.Any(p => p.Nombres.Equals(NombresTextBox.Text)))
+            {
+                SuperErrorProvider.SetError(NombresTextBox, "Este nombre ya existe en la base de datos");
+                NombresTextBox.Focus();
+                paso = false;
+            }
+
+            if (c.Usuarios.Any(p => p.Correo.Equals(CorreoTextBox.Text)))
+            {
+                SuperErrorProvider.SetError(CorreoTextBox, "Este nombre ya existe en la base de datos");
+                UsuarioTextBox.Focus();
+                paso = false;
+            }
+
+
+            c.Dispose();
             return paso;
         }
 
@@ -89,7 +151,11 @@ namespace ProyectoFinalAlpha.UI.Registros
             NombresTextBox.Text = string.Empty;
             UsuarioTextBox.Text = string.Empty;
             PasswordTextBox.Text = string.Empty;
-            NivelAccesoNumericUpDown.Value = 0;
+            CorreoTextBox.Text = string.Empty;
+            ConfirmPasswordTextBox.Text = string.Empty;
+            FechaDateTimePicker.Value = DateTime.Now;
+            SuperErrorProvider.Clear();
+            
 
         }
 
@@ -98,25 +164,42 @@ namespace ProyectoFinalAlpha.UI.Registros
             Usuarios us = new Usuarios();
             us.UsuarioId= Convert.ToInt32(UsuarioIdNumericUpDown.Value);
             us.Nombres = NombresTextBox.Text.Trim();
+            us.Fecha = FechaDateTimePicker.Value;
             us.Usuario = UsuarioTextBox.Text.Trim();
             us.Psw = PasswordTextBox.Text.ToString().Trim();
             us.Psw = Encriptar(PasswordTextBox.Text.Trim());
-            us.NivelAcceso = Convert.ToInt32(NivelAccesoNumericUpDown.Value);
+            us.Correo = CorreoTextBox.Text;
+
+            if (AdministradorRadioButton.Checked == true)
+                us.NivelAcceso = "Administrador";
+            if (CajeroRadioButton.Checked == true)
+                us.NivelAcceso = "Cajero";
+            if (SecretariaRadioButton.Checked == true)
+                us.NivelAcceso = "Secretario";
             return us;
         }
 
         public void LlenarCampos(Usuarios asig)
         {
             UsuarioIdNumericUpDown.Value = asig.UsuarioId;
+            FechaDateTimePicker.Value = asig.Fecha;
             NombresTextBox.Text = asig.Nombres;
             UsuarioTextBox.Text = asig.Usuario;
             PasswordTextBox.Text = asig.Psw;
             PasswordTextBox.Text = DesEncriptar(asig.Psw);
-            NivelAccesoNumericUpDown.Value = asig.NivelAcceso;
+            if (asig.NivelAcceso == "Administrador")
+                AdministradorRadioButton.Checked = true;
+            if (asig.NivelAcceso == "Cajero")
+                CajeroRadioButton.Checked = true;
+            if (asig.NivelAcceso == "Secretario")
+                SecretariaRadioButton.Checked = true;
+            CorreoTextBox.Text = asig.Correo;
+            ConfirmPasswordTextBox.Text = asig.Psw;
+            ConfirmPasswordTextBox.Text = DesEncriptar(asig.Psw);
 
         }
 
-
+       
         private void NuevoButton_Click(object sender, EventArgs e)
         {
             limpiar();
@@ -131,7 +214,13 @@ namespace ProyectoFinalAlpha.UI.Registros
                 return;
             ast = LlenarCalse();
             if (UsuarioIdNumericUpDown.Value == 0)
-                paso = rep.Guardar(ast);
+            {
+                if (!validarBase())
+                    return;
+                
+                    paso = rep.Guardar(ast);
+            }
+                
             else
             {
                 if (!ExisteEnLaBaseDeDatos())
@@ -139,7 +228,22 @@ namespace ProyectoFinalAlpha.UI.Registros
                     MessageBox.Show("No se puede Modififcar un Usuario que no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
+                {
+                    if(UsuarioTextBox.Text!=ast.Usuario)
+                    {
+                        if (!validarBase())
+                        {
+                            return;
+                        }
+                        else
+                            paso = rep.Modificar(ast);
+
+                    }
+                    else
                     paso = rep.Modificar(ast);
+
+                }
+                    
             }
             if (paso)
                 MessageBox.Show("Guardado!!!", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -165,5 +269,7 @@ namespace ProyectoFinalAlpha.UI.Registros
             else
                 SuperErrorProvider.SetError(UsuarioIdNumericUpDown, "No se puede una asignatura que no existe");
         }
+
+        
     }
 }
