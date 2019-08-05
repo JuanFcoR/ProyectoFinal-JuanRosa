@@ -140,6 +140,12 @@
       <DependentUpon>ComprasReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UI\Reportes\ComprasReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ComprasReportViewer.Designer.cs">
+      <DependentUpon>ComprasReportViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Reportes\ProductosReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -158,11 +164,23 @@
       <DependentUpon>SuplidoresReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UI\Reportes\SuplidoresReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\SuplidoresReportViewer.Designer.cs">
+      <DependentUpon>SuplidoresReportViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Reportes\UserReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UserReport.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\UsersReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\UsersReportViewer.Designer.cs">
+      <DependentUpon>UsersReportViewer.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -211,6 +229,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ComprasReport.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\ComprasReportViewer.resx">
+      <DependentUpon>ComprasReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\ProductosReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ProductosReport.cs</LastGenOutput>
@@ -222,9 +243,15 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>SuplidoresReport1.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\SuplidoresReportViewer.resx">
+      <DependentUpon>SuplidoresReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\UserReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>UserReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\UsersReportViewer.resx">
+      <DependentUpon>UsersReportViewer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

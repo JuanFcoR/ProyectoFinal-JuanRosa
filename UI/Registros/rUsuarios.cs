@@ -270,6 +270,12 @@ namespace ProyectoFinalAlpha.UI.Registros
                 SuperErrorProvider.SetError(UsuarioIdNumericUpDown, "No se puede una asignatura que no existe");
         }
 
-        
+        private void VisibleCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            //if(VisibleCheckBox.Checked==true)
+            //{
+            //    PasswordTextBox.PasswordChar='';
+            //}
+        }
     }
 }

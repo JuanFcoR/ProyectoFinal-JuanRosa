@@ -25,6 +25,15 @@ namespace ProyectoFinalAlpha.UI.Consultas
             
         }
 
+        public rOrdenCompra(OrdenDeCompra ord)
+        {
+            InitializeComponent();
+            this.Detalle = new List<DetalleProductos>();
+            CargarComboBox();
+            LlenarCampos(ord);
+
+        }
+
 
         private void limpiar()
         {
@@ -203,13 +212,22 @@ namespace ProyectoFinalAlpha.UI.Consultas
 
         private void SuplidoresComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (SuplidoresComboBox.SelectedIndex!=null)
+            try
             {
-                Repositorio<Suplidores> resu = new Repositorio<Suplidores>();
-                Suplidores su = resu.Buscar(SuplidoresComboBox.SelectedIndex);
-                if(su!=null)
-                TelefonoMaskedTextBox.Text = su.Telefono;
+                if (SuplidoresComboBox.SelectedIndex != 0)
+                {
+                    Repositorio<Suplidores> resu = new Repositorio<Suplidores>();
+                    Suplidores su = resu.Buscar(SuplidoresComboBox.SelectedIndex);
+                    if (su != null)
+                        TelefonoMaskedTextBox.Text = su.Telefono;
+                }
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
     }
 }

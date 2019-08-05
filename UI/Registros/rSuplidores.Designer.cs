@@ -41,11 +41,11 @@
             this.NoSuplidorNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.RNCTextBox = new System.Windows.Forms.TextBox();
-            this.TelefonoTextBox = new System.Windows.Forms.TextBox();
             this.DireccionTextBox = new System.Windows.Forms.TextBox();
             this.SuperErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.FechaCreacionDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
+            this.TelefonoMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.NoSuplidorNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SuperErrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -168,14 +168,6 @@
             this.RNCTextBox.Size = new System.Drawing.Size(190, 23);
             this.RNCTextBox.TabIndex = 40;
             // 
-            // TelefonoTextBox
-            // 
-            this.TelefonoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.TelefonoTextBox.Location = new System.Drawing.Point(143, 177);
-            this.TelefonoTextBox.Name = "TelefonoTextBox";
-            this.TelefonoTextBox.Size = new System.Drawing.Size(190, 23);
-            this.TelefonoTextBox.TabIndex = 41;
-            // 
             // DireccionTextBox
             // 
             this.DireccionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
@@ -207,15 +199,24 @@
             this.label6.TabIndex = 44;
             this.label6.Text = "Fecha de creacion";
             // 
+            // TelefonoMaskedTextBox
+            // 
+            this.TelefonoMaskedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.TelefonoMaskedTextBox.Location = new System.Drawing.Point(143, 177);
+            this.TelefonoMaskedTextBox.Mask = "(999)000-0000";
+            this.TelefonoMaskedTextBox.Name = "TelefonoMaskedTextBox";
+            this.TelefonoMaskedTextBox.Size = new System.Drawing.Size(190, 23);
+            this.TelefonoMaskedTextBox.TabIndex = 45;
+            // 
             // rSuplidores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(360, 395);
+            this.Controls.Add(this.TelefonoMaskedTextBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.FechaCreacionDateTimePicker);
             this.Controls.Add(this.DireccionTextBox);
-            this.Controls.Add(this.TelefonoTextBox);
             this.Controls.Add(this.RNCTextBox);
             this.Controls.Add(this.BuscarButton);
             this.Controls.Add(this.EliminarButton);
@@ -251,10 +252,10 @@
         private System.Windows.Forms.NumericUpDown NoSuplidorNumericUpDown;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox RNCTextBox;
-        private System.Windows.Forms.TextBox TelefonoTextBox;
         private System.Windows.Forms.TextBox DireccionTextBox;
         private System.Windows.Forms.ErrorProvider SuperErrorProvider;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker FechaCreacionDateTimePicker;
+        private System.Windows.Forms.MaskedTextBox TelefonoMaskedTextBox;
     }
 }

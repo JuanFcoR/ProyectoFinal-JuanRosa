@@ -1,6 +1,7 @@
 ﻿using BLL;
 using Entidades;
 using ProyectoFinalAlpha.UI.Registros;
+using ProyectoFinalAlpha.UI.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,15 +16,16 @@ namespace ProyectoFinalAlpha.UI.Consultas
 {
     public partial class cUsuarios : Form
     {
+        List<Usuarios> listado;
         public cUsuarios()
         {
             InitializeComponent();
         }
 
-        private void ConsultarButton_Click(object sender, EventArgs e)
+        private void ConsultarButton_Click_1(object sender, EventArgs e)
         {
             
-            var listado = new List<Usuarios>();
+            
             Repositorio<Usuarios> rep = new Repositorio<Usuarios>();
 
             if (CriterioTextBox.Text.Trim().Length > 0)
@@ -76,9 +78,41 @@ namespace ProyectoFinalAlpha.UI.Consultas
             re.ShowDialog();
         }
 
-        private void FiltrarComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        
+
+        private void FechasCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FechasCheckBox.Checked == true)
+            {
+                DesdeDateTimePicker.Enabled = true;
+                HastaDateTimePicker.Enabled = true;
+
+            }
+            else
+            {
+                DesdeDateTimePicker.Enabled = false;
+                HastaDateTimePicker.Enabled = false;
+            }
+        }
+
+        private void ConsultarButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ImprimirButton_Click(object sender, EventArgs e)
+        {
+
+            if (listado.Count == 0)
+            {
+                MessageBox.Show("No Hay Datos Que Imprimir");
+                return;
+            }
+            else
+            {
+                UsersReportViewer reportViewer = new UsersReportViewer(listado);
+                reportViewer.ShowDialog();
+            }
         }
     }
 }

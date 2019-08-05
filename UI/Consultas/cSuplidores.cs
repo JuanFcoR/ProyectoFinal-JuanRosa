@@ -1,5 +1,7 @@
 ﻿using BLL;
 using Entidades;
+using ProyectoFinalAlpha.UI.Registros;
+using ProyectoFinalAlpha.UI.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +16,7 @@ namespace ProyectoFinalAlpha.UI.Consultas
 {
     public partial class cSuplidores : Form
     {
+        List<Suplidores> listado;
         public cSuplidores()
         {
             InitializeComponent();
@@ -24,7 +27,7 @@ namespace ProyectoFinalAlpha.UI.Consultas
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            var listado = new List<Suplidores>();
+            
             Repositorio<Suplidores> or = new Repositorio<Suplidores>();
             if (CriterioTextBox.Text.Trim().Length > 0)
             {
@@ -98,6 +101,50 @@ namespace ProyectoFinalAlpha.UI.Consultas
                 DesdeDateTimePicker.Enabled = false;
                 HastaDateTimePicker.Enabled = false;
             }
+        }
+
+        private void EditarButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Repositorio<Suplidores> res = new Repositorio<Suplidores>();
+                Suplidores sup;
+                if (ConsultaDataGridView.CurrentRow.Cells[0].Value != null)
+                {
+                    int id;
+                    int.TryParse(ConsultaDataGridView.CurrentRow.Cells[0].Value.ToString(), out id);
+                    sup = res.Buscar(id);
+                    new rSuplidores(sup).ShowDialog();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void ImprimirButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listado.Count == 0)
+                {
+                    MessageBox.Show("No Hay Datos Que Imprimir");
+                    return;
+                }
+                else
+                {
+                    SuplidoresReportViewer reportViewer = new SuplidoresReportViewer(listado);
+                    reportViewer.ShowDialog();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
     }
 }

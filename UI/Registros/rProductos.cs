@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DAL;
 using Entidades;
 using ProyectoFinalAlpha.UI.Consultas;
 using System;
@@ -20,6 +21,12 @@ namespace ProyectoFinalAlpha.UI.Registros
             InitializeComponent();
         }
 
+        public rProductos(Productos p)
+        {
+            InitializeComponent();
+            LlenarCampos(p);
+        }
+
         private void limpiar()
         {
             NoProductoNumericUpDown.Value = 0;
@@ -35,6 +42,7 @@ namespace ProyectoFinalAlpha.UI.Registros
         private Productos llenarClase()
         {
             Productos Pro = new Productos();
+            Pro.Fecha = FechaDateTimePicker.Value;
             Pro.NoProducto = Convert.ToInt32(NoProductoNumericUpDown.Value);
             Pro.Descripcion = DescripcionTextBox.Text.ToString();
             Pro.Cantidad = Convert.ToInt32(CantidadNumericUpDown.Value);
@@ -73,13 +81,26 @@ namespace ProyectoFinalAlpha.UI.Registros
                     paso = false;
                 }
 
-                //if (String.IsNullOrWhiteSpace(MinimoTextBox.Text))
-                //{
-                //    SuperErrorProvider.SetError(MinimoTextBox, "Este campo no debe estar vacio");
-                //    MinimoTextBox.Focus();
-                //    paso = false;
-                //}
+                if(CostoNumericUpDown.Value>GananciaNumericUpDown.Value)
+                {
+                    SuperErrorProvider.SetError(CostoNumericUpDown, "Este campo no debe estar vacio");
+                    CostoNumericUpDown.Focus();
+                    paso = false;
+                }
+            }
 
+            return paso;
+        }
+
+        private bool validarBase()
+        {
+            bool paso = true ;
+            Contexto c = new Contexto();
+            if(c.Productos.Any(p=>p.Descripcion.Equals(p.Descripcion)))
+            {
+                SuperErrorProvider.SetError(DescripcionTextBox, "Esta Descripcion ya existe");
+                DescripcionTextBox.Focus();
+                paso = false;
             }
 
             return paso;
@@ -96,6 +117,7 @@ namespace ProyectoFinalAlpha.UI.Registros
             UnidadTextBox.Text = Pro.Unidad;
             MinimoNumericUpDown.Value = Pro.Minimo;
             GananciaNumericUpDown.Value = Convert.ToDecimal(Pro.Ganancia);
+            FechaDateTimePicker.Value = Pro.Fecha;
         }
 
         private void BuscarButton_Click(object sender, EventArgs e)
@@ -112,12 +134,20 @@ namespace ProyectoFinalAlpha.UI.Registros
         {
             bool paso = false;
             Repositorio<Productos> rep = new Repositorio<Productos>();
-            Productos ast = new Productos();
+            Productos ast= new Productos();
             if (!Validar())
                 return;
             ast = llenarClase();
             if (NoProductoNumericUpDown.Value == 0)
-                paso = rep.Guardar(ast);
+            {
+                //if (!validarBase())
+                //    return;
+                //else
+                    paso = rep.Guardar(ast);
+                    
+            }
+
+
             else
             {
                 if (!ExisteEnLaBasedeDatos())

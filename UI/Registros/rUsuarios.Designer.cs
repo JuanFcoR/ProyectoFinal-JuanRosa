@@ -53,6 +53,7 @@
             this.AdministradorRadioButton = new System.Windows.Forms.RadioButton();
             this.FechaDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
+            this.VisibleCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioIdNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SuperErrorProvider)).BeginInit();
             this.panel1.SuspendLayout();
@@ -291,11 +292,23 @@
             this.label8.TabIndex = 31;
             this.label8.Text = "Fecha";
             // 
+            // VisibleCheckBox
+            // 
+            this.VisibleCheckBox.AutoSize = true;
+            this.VisibleCheckBox.Location = new System.Drawing.Point(244, 288);
+            this.VisibleCheckBox.Name = "VisibleCheckBox";
+            this.VisibleCheckBox.Size = new System.Drawing.Size(101, 17);
+            this.VisibleCheckBox.TabIndex = 32;
+            this.VisibleCheckBox.Text = "Ver Contrasenia";
+            this.VisibleCheckBox.UseVisualStyleBackColor = true;
+            this.VisibleCheckBox.CheckedChanged += new System.EventHandler(this.VisibleCheckBox_CheckedChanged);
+            // 
             // rUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(357, 474);
+            this.Controls.Add(this.VisibleCheckBox);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.FechaDateTimePicker);
             this.Controls.Add(this.panel1);
@@ -353,5 +366,6 @@
         private System.Windows.Forms.TextBox CorreoTextBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker FechaDateTimePicker;
+        private System.Windows.Forms.CheckBox VisibleCheckBox;
     }
 }

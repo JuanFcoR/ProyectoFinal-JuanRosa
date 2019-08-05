@@ -41,6 +41,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.DesdeDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.EditarButton = new System.Windows.Forms.Button();
+            this.ImprimirButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConsultaDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
@@ -77,10 +79,21 @@
             // FiltrarComboBox
             // 
             this.FiltrarComboBox.FormattingEnabled = true;
+            this.FiltrarComboBox.Items.AddRange(new object[] {
+            "Todo",
+            "Id",
+            "Descripcion",
+            "Cantidad",
+            "Minimo",
+            "Unidad",
+            "Precio",
+            "Costo",
+            "Ganancia"});
             this.FiltrarComboBox.Location = new System.Drawing.Point(54, 17);
             this.FiltrarComboBox.Name = "FiltrarComboBox";
             this.FiltrarComboBox.Size = new System.Drawing.Size(99, 21);
             this.FiltrarComboBox.TabIndex = 6;
+            this.FiltrarComboBox.SelectedIndexChanged += new System.EventHandler(this.FiltrarComboBox_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -113,6 +126,8 @@
             // FechasCheckBox
             // 
             this.FechasCheckBox.AutoSize = true;
+            this.FechasCheckBox.Checked = true;
+            this.FechasCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.FechasCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.FechasCheckBox.Location = new System.Drawing.Point(78, 11);
             this.FechasCheckBox.Name = "FechasCheckBox";
@@ -173,11 +188,33 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Desde";
             // 
+            // EditarButton
+            // 
+            this.EditarButton.Location = new System.Drawing.Point(836, 66);
+            this.EditarButton.Name = "EditarButton";
+            this.EditarButton.Size = new System.Drawing.Size(93, 20);
+            this.EditarButton.TabIndex = 16;
+            this.EditarButton.Text = "Editar Seleccion";
+            this.EditarButton.UseVisualStyleBackColor = true;
+            this.EditarButton.Click += new System.EventHandler(this.EditarButton_Click);
+            // 
+            // ImprimirButton
+            // 
+            this.ImprimirButton.Location = new System.Drawing.Point(836, 482);
+            this.ImprimirButton.Name = "ImprimirButton";
+            this.ImprimirButton.Size = new System.Drawing.Size(93, 37);
+            this.ImprimirButton.TabIndex = 17;
+            this.ImprimirButton.Text = "Imprimir";
+            this.ImprimirButton.UseVisualStyleBackColor = true;
+            this.ImprimirButton.Click += new System.EventHandler(this.ImprimirButton_Click);
+            // 
             // cProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(949, 483);
+            this.ClientSize = new System.Drawing.Size(946, 531);
+            this.Controls.Add(this.ImprimirButton);
+            this.Controls.Add(this.EditarButton);
             this.Controls.Add(this.ConsultarButton);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.ConsultaDataGridView);
@@ -210,5 +247,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker DesdeDateTimePicker;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button EditarButton;
+        private System.Windows.Forms.Button ImprimirButton;
     }
 }

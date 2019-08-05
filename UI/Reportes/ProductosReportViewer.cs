@@ -21,7 +21,7 @@ namespace ProyectoFinalAlpha.UI.Reportes
             ProductosReport pr = new ProductosReport();
             pr.SetDataSource(ProductosList);
 
-            ProdReportViewer.ReportSource = ProductosList;
+            ProdReportViewer.ReportSource = pr;
             ProdReportViewer.Refresh();
         }
 

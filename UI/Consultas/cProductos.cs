@@ -1,5 +1,7 @@
 ﻿using BLL;
 using Entidades;
+using ProyectoFinalAlpha.UI.Registros;
+using ProyectoFinalAlpha.UI.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +16,7 @@ namespace ProyectoFinalAlpha.UI.Consultas
 {
     public partial class cProductos : Form
     {
+        private List<Productos> listado;
         public cProductos()
         {
             InitializeComponent();
@@ -21,7 +24,7 @@ namespace ProyectoFinalAlpha.UI.Consultas
 
         private void ConsultarButton_Click(object sender, EventArgs e)
         {
-            var listado = new List<Productos>();
+            
             Repositorio<Productos> or = new Repositorio<Productos>();
             if (CriterioTextBox.Text.Trim().Length > 0)
             {
@@ -64,14 +67,15 @@ namespace ProyectoFinalAlpha.UI.Consultas
 
                 }
 
-                        //if (FechasCheckBox.Checked == true)
-                        //  listado = listado.Where(c => c. >= DesdeDateTimePicker.Value.Date && c.Fecha <= HastaDateTimePicker.Value.Date).ToList();
+                      
                 
             }
             else
             {
                 listado = or.GetList(p => true);
             }
+            if (FechasCheckBox.Checked == true)
+                listado = listado.Where(c => c.Fecha >= DesdeDateTimePicker.Value.Date && c.Fecha <= HastaDateTimePicker.Value.Date).ToList();
 
             ConsultaDataGridView.DataSource = null;
             ConsultaDataGridView.DataSource = listado;
@@ -90,6 +94,57 @@ namespace ProyectoFinalAlpha.UI.Consultas
                 DesdeDateTimePicker.Enabled = false;
                 HastaDateTimePicker.Enabled = false;
             }
+        }
+
+        private void EditarButton_Click(object sender, EventArgs e)
+        {
+            Repositorio<Productos> pr = new Repositorio<Productos>();
+            Productos prod;
+            try
+            {
+                if(ConsultaDataGridView.CurrentRow.Cells[0].Value!=null)
+                {
+                    int id;
+                    int.TryParse(ConsultaDataGridView.CurrentRow.Cells[0].Value.ToString(),out id);
+                    prod = pr.Buscar(id);
+                    new rProductos(prod).ShowDialog();
+                }
+               
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void ImprimirButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listado.Count == 0)
+                {
+                    MessageBox.Show("No Hay Datos Que Imprimir");
+                    return;
+                }
+                else
+                {
+                    ProductosReportViewer reportViewer = new ProductosReportViewer(listado);
+                    reportViewer.ShowDialog();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+                
+            
+        }
+
+        private void FiltrarComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

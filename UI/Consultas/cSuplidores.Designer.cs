@@ -41,6 +41,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.DesdeDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.EditarButton = new System.Windows.Forms.Button();
+            this.ImprimirButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConsultaDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
@@ -48,7 +50,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(886, 29);
+            this.button1.Location = new System.Drawing.Point(876, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 37);
             this.button1.TabIndex = 15;
@@ -77,6 +79,13 @@
             // FiltrarComboBox
             // 
             this.FiltrarComboBox.FormattingEnabled = true;
+            this.FiltrarComboBox.Items.AddRange(new object[] {
+            "Todo",
+            "Id",
+            "Nombre",
+            "Direccion",
+            "Telefono",
+            "RNC"});
             this.FiltrarComboBox.Location = new System.Drawing.Point(54, 17);
             this.FiltrarComboBox.Name = "FiltrarComboBox";
             this.FiltrarComboBox.Size = new System.Drawing.Size(121, 21);
@@ -107,7 +116,7 @@
             this.ConsultaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ConsultaDataGridView.Location = new System.Drawing.Point(12, 89);
             this.ConsultaDataGridView.Name = "ConsultaDataGridView";
-            this.ConsultaDataGridView.Size = new System.Drawing.Size(872, 379);
+            this.ConsultaDataGridView.Size = new System.Drawing.Size(957, 379);
             this.ConsultaDataGridView.TabIndex = 14;
             // 
             // FechasCheckBox
@@ -173,11 +182,33 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Desde";
             // 
+            // EditarButton
+            // 
+            this.EditarButton.Location = new System.Drawing.Point(876, 55);
+            this.EditarButton.Name = "EditarButton";
+            this.EditarButton.Size = new System.Drawing.Size(93, 20);
+            this.EditarButton.TabIndex = 17;
+            this.EditarButton.Text = "Editar Seleccion";
+            this.EditarButton.UseVisualStyleBackColor = true;
+            this.EditarButton.Click += new System.EventHandler(this.EditarButton_Click);
+            // 
+            // ImprimirButton
+            // 
+            this.ImprimirButton.Location = new System.Drawing.Point(876, 474);
+            this.ImprimirButton.Name = "ImprimirButton";
+            this.ImprimirButton.Size = new System.Drawing.Size(93, 37);
+            this.ImprimirButton.TabIndex = 18;
+            this.ImprimirButton.Text = "Imprimir";
+            this.ImprimirButton.UseVisualStyleBackColor = true;
+            this.ImprimirButton.Click += new System.EventHandler(this.ImprimirButton_Click);
+            // 
             // cSuplidores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(995, 482);
+            this.ClientSize = new System.Drawing.Size(995, 523);
+            this.Controls.Add(this.ImprimirButton);
+            this.Controls.Add(this.EditarButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.ConsultaDataGridView);
@@ -211,5 +242,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker DesdeDateTimePicker;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button EditarButton;
+        private System.Windows.Forms.Button ImprimirButton;
     }
 }

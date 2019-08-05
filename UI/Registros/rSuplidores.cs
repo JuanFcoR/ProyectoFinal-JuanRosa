@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DAL;
 using Entidades;
 using ProyectoFinalAlpha.UI.Consultas;
 using System;
@@ -20,12 +21,18 @@ namespace ProyectoFinalAlpha.UI.Registros
             InitializeComponent();
         }
 
+        public rSuplidores(Suplidores s)
+        {
+            InitializeComponent();
+            LlenarCampos(s);
+        }
+
         private void limpiar()
         {
             NoSuplidorNumericUpDown.Value = 0;
             NombreTextBox.Text = String.Empty;
             DireccionTextBox.Text = string.Empty;
-            TelefonoTextBox.Text = string.Empty;
+            TelefonoMaskedTextBox.Text = string.Empty;
             RNCTextBox.Text = string.Empty;
             FechaCreacionDateTimePicker.Value = DateTime.Now;
             SuperErrorProvider.Clear();
@@ -36,7 +43,7 @@ namespace ProyectoFinalAlpha.UI.Registros
             Pro.CodigoSuplidor = Convert.ToInt32(NoSuplidorNumericUpDown.Value);
             Pro.Nombre = NombreTextBox.Text.ToString();
             Pro.Direccion = DireccionTextBox.Text;
-            Pro.Telefono = TelefonoTextBox.Text;
+            Pro.Telefono = TelefonoMaskedTextBox.Text;
             Pro.RNC = RNCTextBox.Text;
             Pro.FechaCreacion = FechaCreacionDateTimePicker.Value;
 
@@ -69,10 +76,10 @@ namespace ProyectoFinalAlpha.UI.Registros
                     paso = false;
                 }
 
-                if (String.IsNullOrWhiteSpace(TelefonoTextBox.Text))
+                if (String.IsNullOrWhiteSpace(TelefonoMaskedTextBox.Text))
                 {
-                    SuperErrorProvider.SetError(TelefonoTextBox, "Este campo no debe estar vacio");
-                    TelefonoTextBox.Focus();
+                    SuperErrorProvider.SetError(TelefonoMaskedTextBox, "Este campo no debe estar vacio");
+                    TelefonoMaskedTextBox.Focus();
                     paso = false;
                 }
 
@@ -82,6 +89,54 @@ namespace ProyectoFinalAlpha.UI.Registros
                     RNCTextBox.Focus();
                     paso = false;
                 }
+
+                if(!TelefonoMaskedTextBox.MaskFull)
+                {
+                    SuperErrorProvider.SetError(TelefonoMaskedTextBox, "Este campo no esta correctamente lleno");
+                    TelefonoMaskedTextBox.Focus();
+                    paso = false;
+                }
+
+            }
+
+            return paso;
+        }
+
+        private bool ValidarBase()
+        {
+            Contexto c = new Contexto();
+            bool paso = true;
+
+            {
+                if (c.Suplidores.Any(p=>p.Nombre.Equals(NombreTextBox.Text)))
+                {
+                    SuperErrorProvider.SetError(NombreTextBox, "Este nombre ya existe");
+                    NombreTextBox.Focus();
+                    paso = false;
+                }
+
+                if (c.Suplidores.Any(p => p.Direccion.Equals(DireccionTextBox.Text)))
+                {
+                    SuperErrorProvider.SetError(DireccionTextBox, "Esta direccion Existe");
+                    DireccionTextBox.Focus();
+                    paso = false;
+                }
+
+                if (c.Suplidores.Any(p => p.Telefono.Equals(TelefonoMaskedTextBox.Text)))
+                {
+                    SuperErrorProvider.SetError(TelefonoMaskedTextBox, "Este numero ya existe");
+                    TelefonoMaskedTextBox.Focus();
+                    paso = false;
+                }
+
+                if (c.Suplidores.Any(p => p.RNC.Equals(RNCTextBox.Text)))
+                {
+                    SuperErrorProvider.SetError(RNCTextBox, "Este RNC ya esta registrado");
+                    RNCTextBox.Focus();
+                    paso = false;
+                }
+
+                
 
             }
 
@@ -94,7 +149,7 @@ namespace ProyectoFinalAlpha.UI.Registros
             NoSuplidorNumericUpDown.Value = Convert.ToInt32(Pro.CodigoSuplidor);
             NombreTextBox.Text = Pro.Nombre;
             DireccionTextBox.Text = Pro.Direccion;
-            TelefonoTextBox.Text = Pro.Telefono;
+            TelefonoMaskedTextBox.Text = Pro.Telefono;
             RNCTextBox.Text = Pro.RNC;
             FechaCreacionDateTimePicker.Value = Pro.FechaCreacion;
         }
@@ -108,12 +163,19 @@ namespace ProyectoFinalAlpha.UI.Registros
         {
             bool paso = false;
             Repositorio<Suplidores> rep = new Repositorio<Suplidores>();
-            Suplidores ast = new Suplidores();
+            Suplidores ast;
             if (!Validar())
                 return;
+            else
             ast = llenarClase();
             if (NoSuplidorNumericUpDown.Value == 0)
-                paso = rep.Guardar(ast);
+            {
+                if (!ValidarBase())
+                    return;
+                else
+                    paso = rep.Guardar(ast);
+            }
+                
             else
             {
                 if (!ExisteEnLaBasedeDatos())

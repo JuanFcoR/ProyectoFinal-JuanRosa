@@ -40,7 +40,9 @@
             this.CriterioTextBox = new System.Windows.Forms.TextBox();
             this.ConsultaDataGridView = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ConsultarButton = new System.Windows.Forms.Button();
+            this.EditarButton = new System.Windows.Forms.Button();
+            this.ImprimirButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConsultaDataGridView)).BeginInit();
             this.panel2.SuspendLayout();
@@ -56,7 +58,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(367, 53);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
             // HastaDateTimePicker
             // 
@@ -101,6 +102,8 @@
             // FechasCheckBox
             // 
             this.FechasCheckBox.AutoSize = true;
+            this.FechasCheckBox.Checked = true;
+            this.FechasCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.FechasCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.FechasCheckBox.Location = new System.Drawing.Point(78, 7);
             this.FechasCheckBox.Name = "FechasCheckBox";
@@ -113,6 +116,10 @@
             // FiltrarComboBox
             // 
             this.FiltrarComboBox.FormattingEnabled = true;
+            this.FiltrarComboBox.Items.AddRange(new object[] {
+            "Todo",
+            "Id",
+            "Fecha"});
             this.FiltrarComboBox.Location = new System.Drawing.Point(54, 17);
             this.FiltrarComboBox.Name = "FiltrarComboBox";
             this.FiltrarComboBox.Size = new System.Drawing.Size(121, 21);
@@ -150,9 +157,8 @@
             this.ConsultaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ConsultaDataGridView.Location = new System.Drawing.Point(12, 88);
             this.ConsultaDataGridView.Name = "ConsultaDataGridView";
-            this.ConsultaDataGridView.Size = new System.Drawing.Size(872, 379);
+            this.ConsultaDataGridView.Size = new System.Drawing.Size(966, 379);
             this.ConsultaDataGridView.TabIndex = 9;
-            this.ConsultaDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ConsultaDataGridView_CellContentClick);
             // 
             // panel2
             // 
@@ -164,29 +170,50 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(470, 53);
             this.panel2.TabIndex = 4;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint);
             // 
-            // button1
+            // ConsultarButton
             // 
-            this.button1.Location = new System.Drawing.Point(886, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 37);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.ConsultarButton.Location = new System.Drawing.Point(885, 12);
+            this.ConsultarButton.Name = "ConsultarButton";
+            this.ConsultarButton.Size = new System.Drawing.Size(93, 37);
+            this.ConsultarButton.TabIndex = 10;
+            this.ConsultarButton.Text = "Consultar";
+            this.ConsultarButton.UseVisualStyleBackColor = true;
+            this.ConsultarButton.Click += new System.EventHandler(this.ConsultarButton_Click);
             // 
-            // Compras
+            // EditarButton
+            // 
+            this.EditarButton.Location = new System.Drawing.Point(885, 55);
+            this.EditarButton.Name = "EditarButton";
+            this.EditarButton.Size = new System.Drawing.Size(93, 20);
+            this.EditarButton.TabIndex = 17;
+            this.EditarButton.Text = "Editar Seleccion";
+            this.EditarButton.UseVisualStyleBackColor = true;
+            this.EditarButton.Click += new System.EventHandler(this.EditarButton_Click);
+            // 
+            // ImprimirButton
+            // 
+            this.ImprimirButton.Location = new System.Drawing.Point(885, 475);
+            this.ImprimirButton.Name = "ImprimirButton";
+            this.ImprimirButton.Size = new System.Drawing.Size(93, 37);
+            this.ImprimirButton.TabIndex = 19;
+            this.ImprimirButton.Text = "Imprimir";
+            this.ImprimirButton.UseVisualStyleBackColor = true;
+            this.ImprimirButton.Click += new System.EventHandler(this.ImprimirButton_Click);
+            // 
+            // cCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 499);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1006, 524);
+            this.Controls.Add(this.ImprimirButton);
+            this.Controls.Add(this.EditarButton);
+            this.Controls.Add(this.ConsultarButton);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.ConsultaDataGridView);
             this.Controls.Add(this.FechasCheckBox);
             this.Controls.Add(this.panel1);
-            this.Name = "Compras";
+            this.Name = "cCompras";
             this.Text = "Ordenes de Compras";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -212,6 +239,8 @@
         private System.Windows.Forms.TextBox CriterioTextBox;
         private System.Windows.Forms.DataGridView ConsultaDataGridView;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ConsultarButton;
+        private System.Windows.Forms.Button EditarButton;
+        private System.Windows.Forms.Button ImprimirButton;
     }
 }
